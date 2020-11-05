@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListadoComponent } from './listado.component';
 import { FormsModule } from '@angular/forms';
+import { NombrePipe } from '../pipes/nombre.pipe';
+import { NombreDirectivaDirective } from '../directivas/nombre-directiva.directive';
+
+
+
 
 
 @NgModule({
   //En declaration se incluye todo lo que hace parte del modulo
-  declarations: [ListadoComponent],
+  declarations: [ListadoComponent, NombrePipe,NombreDirectivaDirective,],
   imports: [
     CommonModule,
     FormsModule

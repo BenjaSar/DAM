@@ -11,11 +11,15 @@ export class ListadoComponent implements OnInit {
   nombre:string = "Benjamin"
   apellido:string = "Sarmiento"
 
-  estaHabilitado:boolean  = true
+  estaHabilitado:boolean  = true;
+
+  miArray =[1,2,3,4,5,6];
+  listado;
   
   constructor(public listadoServ:ListadoService) {
     console.log(this.listadoServ.getDispositivo());
-    }
+    this.listado = this.listadoServ.getDispositivo();  
+  }
 
   ngOnInit(): void {
   }
