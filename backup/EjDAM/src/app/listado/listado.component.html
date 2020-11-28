@@ -1,0 +1,25 @@
+<div>   
+    <span>Hola {{nombre}} {{apellido}}</span>
+    <br>    
+    <input [(ngModel)]= "nombre"/> 
+    <br>
+    <br>    
+    <input [(ngModel)]= "apellido" [disabled] = "estaHabilitado"/> 
+    <br>
+    <button type = "button" (click)="clickEnBoton()">Click</button>
+    <button  (click)="cambiar()">Deshabilitar</button>
+    <div *ngIf= "estaHabilitado"> {{4|elevar:2}}   </div>
+    <div *ngFor = "let e of miArray"> 
+        <p appNombreDirectiva> Elemento del for {{e}}</p>
+    </div>
+
+    <div *ngFor = "let e of this.listado"> 
+        <p appNombreDirectiva> Nombre: {{e.nombre}}</p>
+        <p> Ubicacion: {{e.ubicacion}}</p>
+    </div>
+
+</div>
+
+
+
+

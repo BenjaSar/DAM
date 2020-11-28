@@ -1,0 +1,36 @@
+<form [(formGroup)]= 'formDispositivo'> 
+<div>
+    <label>Nombre</label>
+    <input formControlName = "nombre" name = "nombre"/>
+</div> 
+<div class = "error" *ngIf = "formDispositivo.nombre.invalido && formDispositivo.control.untouched">
+    El nombre es invalido. Por favor agregar un nombre adecuado
+</div>   
+<div>
+    <label>Ubicacion</label>
+    <input formControlName = "ubicacion" name = "ubicacion"/>
+</div>
+<div class = "error" *ngIf = "formDispositivo.ubicacion.invalido && formDispositivo.control.untouched">
+    El nombre es invalido. Por favor agregar un nombre adecuado
+</div>   
+
+<div>
+    <label>Email</label>
+    <input formControlName = "email" name = "email"/>
+</div>
+<div class = "error" *ngIf = "formDispositivo.email.invalido && formDispositivo.control.untouched">
+    El nombre es invalido. Por favor agregar un nombre adecuado
+</div>   
+
+
+<button type = "submit" [disabled] = "formDispositivo.invalido"> Guardar </button>
+
+</form>
+{{formDispositivo.value | json}}
+
+<p>form-listado works!</p>
+<!--pristine: el valor no ha sido modificado por el usuario
+    dirty: el valor del formulario es modificado por el usuario
+    touch: El control ha sido visitado
+    untouch: No ha sido visitado
+-->

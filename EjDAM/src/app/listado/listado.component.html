@@ -1,7 +1,10 @@
-<div>   
+ <!--<div>   
     <span>Hola {{nombre}} {{apellido}}</span>
     <br>    
     <input [(ngModel)]= "nombre"/> 
+    //Para [ngModel] importar formsModule
+    Para formularios reactivos importar  ReactiveFormsModule
+    
     <br>
     <br>    
     <input [(ngModel)]= "apellido" [disabled] = "estaHabilitado"/> 
@@ -19,7 +22,17 @@
     </div>
 
 </div>
+-->
 
+<!--El constructor no forma parte del ciclo de vida de angular-->
 
-
-
+<!--Comunicacion entre componentes -- Componente padre
+- Se debe llamar al componente hijo a través del selecto
+- Se hace un binding entre el padre y el hijo, pasando parámetros del padre al hijo=> PROPERTY BINDING
+-->
+<div *ngFor = "let e of this.listado"> 
+  <!--  <p appNombreDirectiva> Nombre: {{e.nombre}}</p>
+    <p> Ubicacion: {{e.ubicacion}}</p>-->
+    <app-dispositivo [atributoDispositivo]= "e" (evento)="manejarCambio($event)"></app-dispositivo>
+</div>
+<!--Creamos un nuevo compoonente llamado Dispositivo-->

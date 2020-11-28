@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListadoModule } from './listado/listado.module';
+import { FormListadoComponent } from './form-listado/form-listado.component'
+import { ReactiveFormsModule } from '@angular/forms';
+//import { HttpClientModule } from '@angular/common/http';
 
 //import { ListadoComponent } from './listado/listado.component';
 
@@ -11,7 +14,9 @@ import { ListadoModule } from './listado/listado.module';
   declarations: [
    
     AppComponent,
-    
+    FormListadoComponent,
+   
+
   //El pipe de fecha debe ir en el modulo raiz, ya que se va a usar en toda la aplicacion
     
   ],
@@ -19,9 +24,12 @@ import { ListadoModule } from './listado/listado.module';
     //Array de punteros a otros modulos
     BrowserModule,
     AppRoutingModule, 
-    ListadoModule
+    ListadoModule,
+    ReactiveFormsModule,
+   // HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+//Solo se puede emplear una sola directiva estructural por elemento.

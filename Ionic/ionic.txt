@@ -1,0 +1,27 @@
+Ionic native : Wrapper. Te da el look and feel de una aplicacion.
+
+Para correr la app en android:
+
+ionic cordova run android
+
+Para agregar una plataforma nativa a nuestro proyecto:
+
+ionic cordova plattform add android/ios
+
+Para ver la aplicacion en la web
+
+ionic serve --lab
+
+Para modificar la apariencia de mi app, modificar mi propio app-component.scss
+
+Trabajamos sobre app-routing module, el cual gestiona los endpoints de la aplicación y hacia donde apunta. Es un array de paths que apuntan a nuestros componentes. O de otra manera, son objetos json que tienen un paths y  la  URL que apunta a un modulo que se encarga de mostrar ese path. 
+
+Se hace un modulo por componente.
+
+Para generar un componente: 
+
+ionic generate page componentName
+ng run app:serve --host:localhost --port:8101 
+Para generar un service
+
+ionic generate service serviceName

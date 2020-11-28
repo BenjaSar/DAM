@@ -1,0 +1,32 @@
+
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+line-height: 1.4;
+}
+
+.del{
+    background: #ff0000;
+    border: none;
+    padding: 5px 9px;
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+    float: rigth;
+}
+
+.todo{
+    background: #f4f4f4;
+    border: none;
+    padding:10px;
+    border-bottom: 1px  #ccc dotted;
+}
+
+.is-complete{
+    text-decoration: line-through;
+}
+
+.btn:hover{
+    background: #666;
+
+}

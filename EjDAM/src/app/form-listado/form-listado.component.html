@@ -1,0 +1,49 @@
+<form [(formGroup)]= 'formDispositivo' (ngSubmit) = 'guardarDispositivo'> 
+    <!--
+        formGroup=> contiene todos los controles
+        formGroup=> lo asociamos (bindeamos) al html
+    -->
+<div>
+    <label>Nombre</label>
+    <!--Asociacion de los controles del formGroup a los inputs-->
+    <input formControlName = "nombre" name = "nombre"/>
+</div> 
+<div class = "error" *ngIf = "formDispositivo.controls.nombre.invalid && formDispositivo.controls.untouched">
+    El nombre es invalido. Por favor agregar un nombre adecuado
+    <!--Estados:
+    * Valido/Invalido
+    * Pending 
+    * Disabled
+    Maquina de estados de formularios
+    Maquina de estados de los controles
+    -->
+</div>   
+<div>
+    <label>Ubicacion</label>
+    <input formControlName = "ubicacion" name = "ubicacion"/>
+</div>
+<div class = "error" *ngIf = "formDispositivo.controls.ubicacion.invalid && formDispositivo.controls.touched">
+    El nombre es invalido. Por favor agregar un nombre adecuado
+</div>   
+
+<div>
+    <label>Email</label>
+    <input formControlName = "email" name = "email"/>
+</div>
+<div class = "error" *ngIf = "formDispositivo.controls.email.invalid && formDispositivo.controls.touched">
+    El nombre es invalido. Por favor agregar un nombre adecuado
+</div>   
+
+
+<button type = "submit" [disabled] = "formDispositivo.invalid"> Guardar </button>
+</form>
+{{formDispositivo.value | json}}
+{{formDispositivo.status | json}}
+
+
+<p>form-listado works!</p>
+<!--pristine: el valor no ha sido modificado por el usuario
+    dirty: el valor del formulario es modificado por el usuario
+    touch: El control ha sido visitado
+    untouch: No ha sido visitado
+-->
