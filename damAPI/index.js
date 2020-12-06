@@ -10,7 +10,10 @@ var port = 3000;
 var cors = require('cors');
 
 //Para permitir que determinados origenes accedan a los recursos
-//Cors: permite ejectuar consultas
+//Cors: permite ejectuar request desde diferentes origenes
+//Primero hay que instalar cors a través de:
+// npm install --save cors
+// con * permito todo
 var corsOption = {origin: '*', optionSuccesStatus: 200};
 //Middleware de terceros
 app.use(cors(corsOption));
@@ -18,15 +21,16 @@ app.use(cors(corsOption));
 var dispositivo = require('./routes/dispositivo');
 var usuario = require('./routes/usuario');
 
-//Middleware
+//Middleware: archivo que se encarga de gestionar las rutas. Se encuentra entre el reques y el resp
+//Se requiere el app.use() para armar el middleware
 //Parametros del middleware :
 //* Path (endpoint)
 //* 
-app.use('/api/dispositivo', dispositivo);
-app.use('/api/usuario', usuario)
+app.use('/api/dispositivo', dispositivo); //middleware
+app.use('/api/usuario', usuario) //middleware
 
 
 app.listen(port, function(req, res){
 
-    console.log("La api se encuentra levantada en el 3211")
+    console.log("La api se encuentra levantada en el puerto 3000")
 })

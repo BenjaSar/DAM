@@ -28,14 +28,14 @@ export class ListadoService {
    getDispositivos():Promise<Dispositivos[]>{
      return this._http.get(this.urlBackend + "/dispositvo").toPromise().then((listado:Dispositivos[])=>{
       return listado;
-     })
+     });
    }
 
-   getDispositivo(id):Promise<Dispositivos>{
+  getDispositivo(id):Promise<Dispositivos>{
      return this._http.get(this.urlBackend + "/dispositivo" + id).toPromise().then((dispositivo:Dispositivos)=>{
         return dispositivo;
-     })
+     });
    }
    //toPromise: convierte observables en promesas
-
+   //systemctl restart docker.service
 }

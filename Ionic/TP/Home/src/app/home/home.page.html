@@ -1,32 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="ion hydrated">
-    <ion-title class="ios title-ios hydrated"> Home Devices</ion-title>
+    <ion-title class="ios title-ios hydrated">Garden Devices</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="devices" tabIcon="basket"></ion-tab>
-</ion-tabs>
-
-
 <ion-content [fullscreen]="true" class = "ion-padding">
-<ion-list>
-
-  <ion-item *ngFor = "let e of this.Devices"  routerLink​=​"/dispositivo/{{dispositivo.dispositivoId}}">
-    <ion-label >Nombre: {{e.nombre}} </ion-label>
-  </ion-label>Ubicacion: {{e.ubicacion}}</ion-label>
-    <ion-label>Id dispositivo: {{e.dispositivoId}}</ion-label>
-    <ion-label>Id Electroválvula: {{e.electrovalvulaId}}</ion-label>
-  </ion-item>
-  <!--<ion-item>
-    <ion-label>Id dispositivo: {{e.dispositivoId}}</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label>Ubicacion: {{e.ubicacion}}</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label>Id Electroválvula: {{e.electrovalvulaId}}</ion-label>
-  </ion-item>-->
-
-</ion-list>
+  <div>
+    <ion-list>
+      <div id="highcharts" style="width:100%; height:300px;"></div>
+      <ion-item *ngFor = "let e of this.listadoDevices" routerLink="/dispositivo/{{e.dispositivoId}}" routerDirection="root" >
+        <ion-label>Dispositivo: {{e.nombre}} - Id : {{e.dispositivoId} </ion-label>
+        <ion-label>Ubicacion: {{e.ubicacion}}</ion-label>
+        <ion-label>Id Electroválvula: {{e.electrovalvulaId}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

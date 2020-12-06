@@ -15,7 +15,7 @@ routerMedicion.get('/:id', function (req, res) {
 });
 
 //Metodo get que recibie un parametro id de dispositivo y devuelve todos los valores de la tabla medicion para el Id dado
-routerMedicion.get('/:id', function (req, res) {
+routerMedicion.get('/:id/todas', function (req, res) {
     mysql.query('Select * from Mediciones where dispositivoId=? order by fecha desc', [req.params.id], function (err, result) {
         if(err){
             res.send(err).status(400);
@@ -32,7 +32,10 @@ routerMedicion.post('/agregar', function(req, res){
         }
         res.send(result);
     });
-});
+});   
+ 
+
+
     
 
 

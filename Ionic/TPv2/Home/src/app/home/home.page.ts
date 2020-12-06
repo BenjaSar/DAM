@@ -21,13 +21,15 @@ miArray =[1,2,3,4,5,6];
 //listadoServ es una instancia de ListadoService
 listadoDevices:Dispositivos[];
 constructor(public listadoServ:ListadoService) {
-  console.log("Estoy fuera del then 1")
+  console.log("Estoy fuera del then 1");
   this.listadoServ.getDispositivos().then((listado)=>{
     this.listadoDevices = listado;
-    console.log("Estoy en el .then " + this.listadoDevices)  
+    console.log("Estoy en el .then " + this.listadoDevices);  
   });
-  console.log("Estoy fuera del then 2")
-}
+  console.log("Estoy fuera del then 2");
+};
+
+
 
 
 ngOnInit(): void {

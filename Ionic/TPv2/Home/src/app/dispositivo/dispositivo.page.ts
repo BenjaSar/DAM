@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Dispositivos } from '../model/Dispositivo';
-import { ListadoService } from '../service/listado.service';
 import * as Highcharts from 'highcharts';
+import * as moment from 'moment';
+import { MedicionService } from '../service/medicion.service';
+import { Medicion } from '../model/Medicion';
 declare var require: any;
 require('highcharts/highcharts-more')(Highcharts);
 require('highcharts/modules/solid-gauge')(Highcharts);
+
+
+
 
 
 @Component({
@@ -14,12 +19,15 @@ require('highcharts/modules/solid-gauge')(Highcharts);
   styleUrls: ['./dispositivo.page.scss'],
 })
 export class DispositivoPage implements OnInit {
-  public device :Dispositivos
+  public device :Dispositivos;
   private valorObtenido:number=0;
   public myChart;
   private chartOptions;
+  public medicion:Medicion;
+  public idDispositivo;
 
-  constructor(private router: ActivatedRoute, private dService:ListadoService) { 
+ 
+  constructor(private router: ActivatedRoute, private medicionService:MedicionService) { 
     setTimeout(()=>{
       console.log("Cambio el valor del sensor");
       this.valorObtenido=60;
@@ -35,12 +43,14 @@ export class DispositivoPage implements OnInit {
   }
 
   ngOnInit() {
-    let​ ​ idDispositivo​ = ​ this​.router.snapshot​.paramMap​.get​('id');
-    //this.device = this.dService.getDispositivos(idDispositivo);
-    console.log(this.device);
+    this.idDispositivo​ = ​ this​.router.snapshot​.paramMap​.get​('id');
     //Traigo la ultima medicion que tiene el sensor
+    this.medicionService.getMedicionByDispositivoId(this.idDispositivo).then((measure)=>{
+      this.medicion = measure;
+    });
+    //console.log(this.device);
+    
     //paramsMap: Todos los valores declarados dentro de app-routing (/:id)
-    //En docker levantar la base de datos y el phpadmin
   }
 
 
@@ -121,5 +131,6 @@ export class DispositivoPage implements OnInit {
   
   ionViewWillEnter(){
   }
+  //let a : Medicion= new Medicion(99,moment().format("YYYY-MM-DD hh:mm:ss"),99,1);
 
 }

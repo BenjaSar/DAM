@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion hydrated">
+    <ion-title class="ios title-ios hydrated">Garden Devices</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class = "ion-padding">
+  <div>
+    <ion-list>
+      <div id="highcharts" style="width:100%; height:300px;"></div>
+      <ion-item *ngFor = "let e of this.listadoDevices" routerLink="/dispositivo/{{e.dispositivoId}}" routerDirection="root" >
+        <ion-label>Dispositivo: {{e.nombre}} </ion-label>
+        <ion-label>Ubicacion: {{e.ubicacion}}</ion-label>
+        <ion-label>Id dispositivo: {{e.dispositivoId}}</ion-label>
+        <ion-label>Id Electroválvula: {{e.electrovalvulaId}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
