@@ -1,9 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>dispositivo</ion-title>
+    <ion-title>Dispositivo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div id="highcharts" style="width:100%; height:300px;"></div>
+  <div id="highcharts" style="width:100%; height:300px;"></div> 
+      <ion-button expand="full" shape = "round" class="ion-text-wrap" fill = "outline" (click)="cambiar()">Abrir Electroválvula</ion-button>
+        <div *ngIf= "abriElectrovalvula"> </div>  
+          <br>
+      <ion-button expand="full" shape = "round" class="ion-text-wrap" fill = "outline"> Ver todas las mediciones</ion-button>
+       <br>
+    <ion-button expand="full" shape = "round" class="ion-text-wrap" fill = "outline">Ver riegos</ion-button>
 </ion-content>

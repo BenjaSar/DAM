@@ -32,7 +32,7 @@ export class ListadoService {
    }
 
   getDispositivo(id):Promise<Dispositivos>{
-     return this._http.get(this.urlBackend + "/dispositivo" + id).toPromise().then((dispositivo:Dispositivos)=>{
+     return this._http.get(this.urlBackend + "/dispositivo/" + id).toPromise().then((dispositivo:Dispositivos)=>{
         return dispositivo;
      });
    }

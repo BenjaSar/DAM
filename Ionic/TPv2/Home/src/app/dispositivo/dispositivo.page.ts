@@ -25,6 +25,7 @@ export class DispositivoPage implements OnInit {
   private chartOptions;
   public medicion:Medicion;
   public idDispositivo;
+  abrirElectrovalvula: boolean = true;
 
  
   constructor(private router: ActivatedRoute, private medicionService:MedicionService) { 
@@ -48,7 +49,6 @@ export class DispositivoPage implements OnInit {
     this.medicionService.getMedicionByDispositivoId(this.idDispositivo).then((measure)=>{
       this.medicion = measure;
     });
-    //console.log(this.device);
     
     //paramsMap: Todos los valores declarados dentro de app-routing (/:id)
   }
@@ -68,7 +68,7 @@ export class DispositivoPage implements OnInit {
           plotShadow: false
         }
         ,title: {
-          text: 'Sensor N° 1'
+          text: 'Sensor'
         }
 
         ,credits:{enabled:false}
@@ -133,4 +133,11 @@ export class DispositivoPage implements OnInit {
   }
   //let a : Medicion= new Medicion(99,moment().format("YYYY-MM-DD hh:mm:ss"),99,1);
 
+  
+  cambiar(){
+    console.log(this.abrirElectrovalvula);
+    this.abrirElectrovalvula =! this.abrirElectrovalvula;
+    console.log("Se cambia por:" + this.abrirElectrovalvula);
+  }
 }
+

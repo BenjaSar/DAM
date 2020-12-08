@@ -12,13 +12,13 @@ export class MedicionService {
 
 
   getMedicionByDispositivoId(id):Promise<Medicion>{
-    return this._http.get(this.urlApi + "/medicion"+id).toPromise().then((measure:Medicion)=>{
+    return this._http.get(this.urlApi + "/medicion/"+id).toPromise().then((measure:Medicion)=>{
      return measure;
     });
   }  
 
   getMedicionesByDispositivoId(id):Promise<Medicion[]>{
-    return this._http.get(this.urlApi + "/medicion" + id + "/todas").toPromise().then((mediciones:Medicion[])=>{
+    return this._http.get(this.urlApi + "/medicion/" + id + "/todas").toPromise().then((mediciones:Medicion[])=>{
       return mediciones
     });
   }
