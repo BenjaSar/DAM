@@ -36,5 +36,5 @@ app.use('/api/medicion', medicion) //middleware
 //app.use('/api/logriego', riego) //middleware
 
 app.listen(port, function(req, res){
-    console.log("La api se encuentra levantada en el puerto 8000")
+    console.log("La api se encuentra levantada en el puerto 3000")
 });

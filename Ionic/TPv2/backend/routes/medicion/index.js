@@ -35,8 +35,7 @@ routerMedicion.post('/agregar', function(req, res){
 });   
  
 
-
-    
+//\
 
 
 //Se pone a disposición la variable routerDispositivo

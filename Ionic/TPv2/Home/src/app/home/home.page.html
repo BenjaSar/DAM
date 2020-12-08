@@ -7,11 +7,16 @@
   <div>
     <ion-list>
       <ion-item *ngFor = "let e of this.listadoDevices" routerLink="/dispositivo/{{e.dispositivoId}}" routerDirection="root" >
+        <ion-avatar slot = "start">
+          <ion-icon size = "large" name = "thermometer"> </ion-icon>
+        </ion-avatar>
         <h2>
-          <ion-label>Dispositivo: {{e.nombre}} - Id: {{e.dispositivoId}} </ion-label>
+          <ion-label>{{e.nombre}} - Id: {{e.dispositivoId}} </ion-label>
+          <h4>
+            <ion-label>Ubicacion: {{e.ubicacion}}</ion-label>
+            <h6>  <ion-label>Id Electroválvula: {{e.electrovalvulaId}}</ion-label></h6>
+          </h4>  
         </h2>
-        <ion-label>Ubicacion: {{e.ubicacion}}</ion-label>
-        <ion-label>Id Electroválvula: {{e.electrovalvulaId}}</ion-label>
       </ion-item>
     </ion-list>
   </div>

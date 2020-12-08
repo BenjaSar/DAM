@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MedicionService {
-  urlApi = 'http://localhost:3000/api'
+  urlApi = 'http://localhost:8000/api'
   constructor(private _http:HttpClient) { }
 
 
@@ -15,7 +15,7 @@ export class MedicionService {
     return this._http.get(this.urlApi + "/medicion"+id).toPromise().then((measure:Medicion)=>{
      return measure;
     });
-  }
+  }  
 
   getMedicionesByDispositivoId(id):Promise<Medicion[]>{
     return this._http.get(this.urlApi + "/medicion" + id + "/todas").toPromise().then((mediciones:Medicion[])=>{

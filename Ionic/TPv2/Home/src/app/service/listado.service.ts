@@ -15,7 +15,7 @@ export class ListadoService {
   //Se le debe pegar a la API
   //frontEnd le pega al backend por medio del service.
   //Backend le pega a la base de datos.
-  urlBackend = 'http://localhost:3000/api' //Url donde está hosteada la API
+  urlBackend = 'http://localhost:8000/api' //Url donde está hosteada la API
 
 
   constructor(private _http:HttpClient) {
@@ -26,7 +26,7 @@ export class ListadoService {
    //Promesas manejan solo 1 evento. No se pueden cancelar.
    //Metodos; .then (encola codigo) y .cacht retornan promesas
    getDispositivos():Promise<Dispositivos[]>{
-     return this._http.get(this.urlBackend + "/dispositvo").toPromise().then((listado:Dispositivos[])=>{
+     return this._http.get(this.urlBackend + "/dispositivo").toPromise().then((listado:Dispositivos[])=>{
       return listado;
      });
    }

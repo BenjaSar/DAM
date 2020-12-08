@@ -18,10 +18,12 @@ services:
         image:                      mysql:5.7
         hostname:                   mysql-server
         container_name:             mysql-server
+        command:                    mysqld --default-authentication-plugin=mysql_native_password
         restart:                    always
         environment:
             MYSQL_ROOT_PASSWORD:    userpass
         volumes:
+            -                       ./db/dumps:/docker-entrypoint-initdb.d
             -                       ./db/data:/var/lib/mysql
         networks:
             -                       dam-ceiot-network
@@ -46,14 +48,14 @@ services:
         hostname:                   node-backend
         container_name:             node-backend
         volumes:
-            -                       ./backend:/home/node/app/src
+            -                       ./backend:C:\Users\JorgeLuis\node\app\src
         networks:
             -                       dam-ceiot-network
         depends_on:
             -                       mysql-server
         ports: 
             -                       "8000:3000"
-        command:                    nodemon /home/node/app/src
+        command:                    nodemon C:\Users\JorgeLuis\node\app\src
                                     
 
 networks:
