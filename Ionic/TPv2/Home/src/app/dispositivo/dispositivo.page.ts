@@ -11,8 +11,6 @@ require('highcharts/modules/solid-gauge')(Highcharts);
 
 
 
-
-
 @Component({
   selector: 'app-dispositivo',
   templateUrl: './dispositivo.page.html',
@@ -139,5 +137,6 @@ export class DispositivoPage implements OnInit {
     this.abrirElectrovalvula =! this.abrirElectrovalvula;
     console.log("Se cambia por:" + this.abrirElectrovalvula);
   }
+
 }
 
