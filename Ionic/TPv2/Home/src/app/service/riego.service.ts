@@ -12,11 +12,18 @@ export class RiegoService {
   constructor(private _http:HttpClient) { }
 
 
- getLogByElectrovalvulaById(id):Promise<logRiego[]>{
-   return this._http.get(this.urlApi + "/electrovalvulaId/" + id + "/riego").toPromise().then((riego:logRiego[])=>{
+ getLogByElectrovalvulaById(idDevice, id):Promise<logRiego[]>{
+   return this._http.get(this.urlApi + "/dispositivo"+ idDevice + "/electrovalvula/" + id).toPromise().then((riego:logRiego[])=>{
      return riego;
     });
-  }  
+  }
+  
+  
+ getLogsByElectrovalvulaById(idElectrovalvula):Promise<logRiego>{
+  return this._http.get(this.urlApi + "/riego/"+ idElectrovalvula + "/todas").toPromise().then((logR:logRiego)=>{
+    return logR;
+   });
+ }  
 
  /* getMedicionesByDispositivoId(id):Promise<Medicion[]>{
     return this._http.get(this.urlApi + "/medicion/" + id + "/todas").toPromise().then((mediciones:Medicion[])=>{

@@ -15,25 +15,22 @@ var cors = require('cors');
 // npm install --save cors
 // con * permito todo
 var corsOption = {origin: '*', optionSuccesStatus: 200};
+
 //Middleware de terceros
 app.use(cors(corsOption));
 
 var dispositivo = require('./routes/dispositivo');
 var usuario = require('./routes/usuario');
 var medicion = require('./routes/medicion');
-var riego = require('./routes/riego');
+var logriego = require('./routes/logriego');
 
 
-//Middleware: archivo que se encarga de gestionar las rutas. Se encuentra entre el reques y el resp
-//Se requiere el app.use() para armar el middleware
-//Parametros del middleware :
-//* Path (endpoint)
-//* 
+//Middlewares:
 app.use(express.json());
 app.use('/api/dispositivo', dispositivo); //middleware
 app.use('/api/usuario', usuario) //middleware
 app.use('/api/medicion', medicion) //middleware
-app.use('/api/logriego', riego) //middleware
+app.use('/api/dispositivo/riego/', logriego) //middleware
 
 app.listen(port, function(req, res){
     console.log("La api se encuentra levantada en el puerto 3000")

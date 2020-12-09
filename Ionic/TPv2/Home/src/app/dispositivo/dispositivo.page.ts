@@ -5,6 +5,8 @@ import * as Highcharts from 'highcharts';
 import * as moment from 'moment';
 import { MedicionService } from '../service/medicion.service';
 import { Medicion } from '../model/Medicion';
+import { RiegoService } from '../service/riego.service';
+import { logRiego } from '../model/Riego';
 declare var require: any;
 require('highcharts/highcharts-more')(Highcharts);
 require('highcharts/modules/solid-gauge')(Highcharts);
@@ -22,11 +24,13 @@ export class DispositivoPage implements OnInit {
   public myChart;
   private chartOptions;
   public medicion:Medicion;
-  public idDispositivo;
+  public idDispositivo; 
+  public idElectrovalvula;
   abrirElectrovalvula: boolean = true;
+  public logRiego: logRiego;
 
  
-  constructor(private router: ActivatedRoute, private medicionService:MedicionService) { 
+  constructor(private router: ActivatedRoute, private medicionService:MedicionService, private riegoService:RiegoService) { 
     setTimeout(()=>{
       console.log("Cambio el valor del sensor");
       this.valorObtenido=60;
@@ -47,10 +51,12 @@ export class DispositivoPage implements OnInit {
     this.medicionService.getMedicionByDispositivoId(this.idDispositivo).then((measure)=>{
       this.medicion = measure;
     });
-    
-    //paramsMap: Todos los valores declarados dentro de app-routing (/:id)
-  }
 
+    this.riegoService.getLogsByElectrovalvulaById(this.idElectrovalvula).then((logR)=>{
+      this.logRiego = logR;
+    });
+          //paramsMap: Todos los valores declarados dentro de app-routing (/:id)
+  }
 
   ionViewDidEnter() {
     this.generarChart();
