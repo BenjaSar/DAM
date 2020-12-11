@@ -20,8 +20,16 @@ const routes: Routes = [
     path: 'electrovalvula',
     loadChildren: () => import('./electrovalvula/electrovalvula.module').then( m => m.ElectrovalvulaPageModule)
   },
+  {
+    path: 'medicion',
+    loadChildren: () => import('./medicion/medicion.module').then( m => m.MedicionPageModule)
+  },
+  {
+    path: 'riego',
+    loadChildren: () => import('./riego/riego.module').then( m => m.RiegoPageModule)
+  },
 
-  
+
 ];
 
 @NgModule({

@@ -135,7 +135,7 @@ export class DispositivoPage implements OnInit {
   
   ionViewWillEnter(){
   }
-  //let a : Medicion= new Medicion(99,moment().format("YYYY-MM-DD hh:mm:ss"),99,1);
+  //var a : Medicion= new Medicion(99,moment().format("YYYY-MM-DD hh:mm:ss"),99,1);
 
   
   cambiar(){
