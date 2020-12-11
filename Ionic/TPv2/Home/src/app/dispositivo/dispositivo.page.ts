@@ -27,7 +27,7 @@ export class DispositivoPage implements OnInit {
   public idDispositivo; 
   public idElectrovalvula;
   abrirElectrovalvula: boolean = true;
-  public logRiego: logRiego;
+  public logRiego: logRiego[];
 
  
   constructor(private router: ActivatedRoute, private medicionService:MedicionService, private riegoService:RiegoService) { 
