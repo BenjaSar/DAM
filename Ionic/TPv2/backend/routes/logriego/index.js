@@ -15,7 +15,7 @@ var mysql =  require('../../mysql');
     });
 });*/
 
-routerlogRiego.get('/:id/todas', function (req, res) {
+routerlogRiego.get('/:idElectrovalvula/todas', function (req, res) {
     mysql.query('Select * from Log_Riegos where electrovalvulaId=? order by fecha desc', [req.params.id], function (err, result) {
         if(err){
             res.send(err).status(400);  
@@ -23,6 +23,6 @@ routerlogRiego.get('/:id/todas', function (req, res) {
         res.send(result);
     });
 });
-//Se pone a disposición la variable routerDispositivo
-module.exports =  routerlogRiego;  //Se pone a disposición la variable routerDispositivo
-//Para cargar el middleware, se llama a app.use(), especificando la función.
+//Se pone a disposición la variable routerlogRiego
+module.exports =  routerlogRiego;  
+

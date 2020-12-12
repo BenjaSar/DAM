@@ -38,4 +38,11 @@ export class ListadoService {
    }
    //toPromise: convierte observables en promesas
    //systemctl restart docker.service
+
+   getElectrovalvula(id):Promise<Dispositivos>{
+    return this._http.get(this.urlBackend + "/dispositivo/" + id + "/electrovalvula/" + id).toPromise().then((divace:Dispositivos)=>{
+      return divace;
+    });
+
+   }
 }

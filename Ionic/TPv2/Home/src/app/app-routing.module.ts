@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./dispositivo/dispositivo.module').then( m => m.DispositivoPageModule)
   },
   {
-    path: 'electrovalvula',
+    path: 'electrovalvula/:id',
     loadChildren: () => import('./electrovalvula/electrovalvula.module').then( m => m.ElectrovalvulaPageModule)
   },
   {

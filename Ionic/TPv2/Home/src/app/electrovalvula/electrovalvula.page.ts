@@ -8,7 +8,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ElectrovalvulaPage implements OnInit {
 
-  constructor(private router: ActivatedRoute) { }
+  public idElectrovalvula;
+
+  constructor(private router: ActivatedRoute) {
+    this.idElectrovalvula = ​ this​.router.snapshot​.paramMap​.get​('id');
+   }
 
   ngOnInit() {
   }

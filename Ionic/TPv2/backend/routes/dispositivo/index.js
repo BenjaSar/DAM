@@ -18,6 +18,11 @@ routerDispositivo.get('/:id', function (req, res) {
     res.send("Dispositivos" + req.params.id)
 });
 
+routerDispositivo.get('/:id/electrovalvula/:id', function (req, res) {
+    res.send("Electrovalvula " + req.params.id)
+});
+
+
 //Middleware direccionador
 // Se crea un archivo de direccionador en el directorio de la aplicacion
 //Luego se carga como un modulo dentro del index.js (punto de entrada de la api) de la aplicacion 

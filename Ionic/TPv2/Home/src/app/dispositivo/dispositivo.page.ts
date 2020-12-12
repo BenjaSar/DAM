@@ -7,6 +7,7 @@ import { MedicionService } from '../service/medicion.service';
 import { Medicion } from '../model/Medicion';
 import { RiegoService } from '../service/riego.service';
 import { logRiego } from '../model/Riego';
+import { ListadoService } from '../service/listado.service';
 declare var require: any;
 require('highcharts/highcharts-more')(Highcharts);
 require('highcharts/modules/solid-gauge')(Highcharts);
@@ -23,14 +24,16 @@ export class DispositivoPage implements OnInit {
   private valorObtenido:number=0;
   public myChart;
   private chartOptions;
-  public medicion:Medicion;
   public idDispositivo; 
   public idElectrovalvula;
   abrirElectrovalvula: boolean = true;
   public logRiego: logRiego[];
+  Divaces:Dispositivos;
+  public id;
 
  
-  constructor(private router: ActivatedRoute, private medicionService:MedicionService, private riegoService:RiegoService) { 
+  constructor(private router: ActivatedRoute, private riegoService:RiegoService, public listadoServ:ListadoService) { 
+
     setTimeout(()=>{
       console.log("Cambio el valor del sensor");
       this.valorObtenido=60;
@@ -47,13 +50,15 @@ export class DispositivoPage implements OnInit {
 
   ngOnInit() {
     this.idDispositivo​ = ​ this​.router.snapshot​.paramMap​.get​('id');
-    //Traigo la ultima medicion que tiene el sensor
-    this.medicionService.getMedicionByDispositivoId(this.idDispositivo).then((measure)=>{
-      this.medicion = measure;
-    });
+    this.idElectrovalvula = ​ this​.router.snapshot​.paramMap​.get​('id');
 
+    //listadoServ es una instancia de ListadoService
     this.riegoService.getLogsByElectrovalvulaById(this.idElectrovalvula).then((logR)=>{
       this.logRiego = logR;
+
+    this.listadoServ.getElectrovalvula(this.id).then((divace)=>{
+      this.Divaces = divace; 
+      });  
     });
           //paramsMap: Todos los valores declarados dentro de app-routing (/:id)
   }
