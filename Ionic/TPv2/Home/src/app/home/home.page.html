@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content [fullscreen]="true" class = "ion-padding">
   <div>
-    <ion-list>
+    <ion-list>  
       <ion-item *ngFor = "let e of this.listadoDevices" routerLink="/dispositivo/{{e.dispositivoId}}" routerDirection="root" >
         <ion-avatar slot = "start">
           <ion-icon size = "large" name = "thermometer"> </ion-icon>
@@ -17,6 +17,6 @@
           </h4>  
         </h2>
       </ion-item>
-    </ion-list>
+    </ion-list> 
   </div>
 </ion-content>

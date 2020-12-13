@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { MedicionPageRoutingModule } from './medicion-routing.module';
-
 import { MedicionPage } from './medicion.page';
 
 @NgModule({
@@ -13,7 +12,7 @@ import { MedicionPage } from './medicion.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    MedicionPageRoutingModule
+    MedicionPageRoutingModule,
   ],
   declarations: [MedicionPage]
 })

@@ -20,7 +20,6 @@ require('highcharts/modules/solid-gauge')(Highcharts);
   styleUrls: ['./dispositivo.page.scss'],
 })
 export class DispositivoPage implements OnInit {
-  public device :Dispositivos;
   private valorObtenido:number=0;
   public myChart;
   private chartOptions;
@@ -28,7 +27,6 @@ export class DispositivoPage implements OnInit {
   public idElectrovalvula;
   abrirElectrovalvula: boolean = true;
   public logRiego: logRiego[];
-  Divaces:Dispositivos;
   public id;
 
  
@@ -50,15 +48,11 @@ export class DispositivoPage implements OnInit {
 
   ngOnInit() {
     this.idDispositivo​ = ​ this​.router.snapshot​.paramMap​.get​('id');
-    this.idElectrovalvula = ​ this​.router.snapshot​.paramMap​.get​('id');
+
 
     //listadoServ es una instancia de ListadoService
     this.riegoService.getLogsByElectrovalvulaById(this.idElectrovalvula).then((logR)=>{
       this.logRiego = logR;
-
-    this.listadoServ.getElectrovalvula(this.id).then((divace)=>{
-      this.Divaces = divace; 
-      });  
     });
           //paramsMap: Todos los valores declarados dentro de app-routing (/:id)
   }
@@ -148,6 +142,5 @@ export class DispositivoPage implements OnInit {
     this.abrirElectrovalvula =! this.abrirElectrovalvula;
     console.log("Se cambia por:" + this.abrirElectrovalvula);
   }
-
 }
 

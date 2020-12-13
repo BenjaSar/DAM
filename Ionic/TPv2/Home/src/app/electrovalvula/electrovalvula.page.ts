@@ -7,14 +7,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./electrovalvula.page.scss'],
 })
 export class ElectrovalvulaPage implements OnInit {
+  idElectrovalvula;
 
-  public idElectrovalvula;
-
-  constructor(private router: ActivatedRoute) {
-    this.idElectrovalvula = ​ this​.router.snapshot​.paramMap​.get​('id');
+  constructor(private route:ActivatedRoute) {
    }
 
-  ngOnInit() {
+  ngOnInit( ) {
+    this.idElectrovalvula = ​ this​.route.snapshot​.paramMap​.get​('id');
   }
 
 }

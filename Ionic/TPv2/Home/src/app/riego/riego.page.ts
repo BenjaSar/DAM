@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-riego',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RiegoPage implements OnInit {
 
-  constructor() { }
+  public idElectrovalvula; 
+  idLogRiego;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.idLogRiego = ​ this​.route.snapshot​.paramMap​.get​('id');
   }
 
+
+    //this.idElectrovalvula = ​ this​.router.snapshot​.paramMap​.get​('electrovalvula/:id');
+  
 }
