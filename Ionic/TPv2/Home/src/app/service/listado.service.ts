@@ -40,9 +40,9 @@ export class ListadoService {
    //systemctl restart docker.service
 
    /*getElectrovalvula(id):Promise<Dispositivos>{
-    return this._http.get(this.urlBackend + "/dispositivo/" + id + "/electrovalvula/" + id).toPromise().then((device:Dispositivos)=>{
-      return divace;
-    });
+    return this._http.get(this.urlBackend + "/dispositivo/" + id + "/electrovalvula/" + id).toPromise().then((DevicEl:Dispositivos)=>{
+      return DevicEl;
+    })
+  };*/
 
-   }*/
 }

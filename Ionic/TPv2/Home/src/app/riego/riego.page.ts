@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { logRiego } from '../model/Riego';
+import { RiegoService } from '../service/riego.service';
 
 @Component({
   selector: 'app-riego',
@@ -10,8 +12,15 @@ export class RiegoPage implements OnInit {
 
   public idElectrovalvula; 
   idLogRiego;
+  public logRiego : logRiego[]
+ 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private riegoService: RiegoService) {
+    this.riegoService.getLogsByElectrovalvulaById(this.idElectrovalvula).then((logR)=>{
+      this.logRiego = logR;
+    });
+
+   }
 
   ngOnInit() {
     this.idLogRiego = ​ this​.route.snapshot​.paramMap​.get​('id');

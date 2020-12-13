@@ -12,13 +12,14 @@ import { MedicionService } from '../service/medicion.service';
 export class MedicionPage implements OnInit {
   public idMedicion; 
   public idDispositivo;
-  public medicion:Medicion;
+  public measures: Medicion[];
   tableStyle = 'material';
 
   constructor(private medicionService:MedicionService, private activedRoute: ActivatedRoute) {
 
-    this.medicionService.getMedicionByDispositivoId(this.idDispositivo).then((measure)=>{
-      this.medicion = measure;
+    //Promesa de listado de mediciones
+    this.medicionService.getMedicionesByDispositivoId(this.idDispositivo).then((mediciones)=>{
+      this.measures = mediciones;
     });
    }
 

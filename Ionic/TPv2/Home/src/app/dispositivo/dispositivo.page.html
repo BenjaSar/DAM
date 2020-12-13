@@ -6,8 +6,10 @@
 
 <ion-content>
   <div id="highcharts" style="width:100%; height:300px;"></div>
-    <p appDirectivaAtributo><ion-button routerLink = "/electrovalvula/{{this.electrovalvulaId}}" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline" (click)="cambiar()">Abrir Electroválvula</ion-button> </p>
-      <br> 
+    <div routerLink = "/electrovalvula/{{this.electrovalvulaId}}" routerDirection = "forward">
+      <p appDirectivaAtributo><ion-button  expand="full" shape = "round" class="ion-text-wrap" fill = "outline" (click)="cambiar()">Abrir Electroválvula</ion-button> </p>
+        <br>
+    </div>    
     <p appDirectivaAtributo><ion-button routerLink = "/medicion" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline"> Ver todas las mediciones</ion-button> </p>
       <br>
     <p appDirectivaAtributo><ion-button routerLink = "/riego" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline">Ver riegos</ion-button> </p>   

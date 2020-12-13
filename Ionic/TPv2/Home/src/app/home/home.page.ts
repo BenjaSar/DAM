@@ -18,8 +18,6 @@ tab1Root: any = 'devices';
 idDevice;
 public device :Dispositivos;
 
-miArray =[1,2,3,4,5,6];
-
 //listadoServ es una instancia de ListadoService
 listadoDevices:Dispositivos[];
 constructor(public listadoServ:ListadoService) {

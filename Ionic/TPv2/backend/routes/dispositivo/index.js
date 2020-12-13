@@ -15,10 +15,16 @@ routerDispositivo.get('/', function (req, res) {
 
 //Se obtiene un objeto con id
 routerDispositivo.get('/:id', function (req, res) {
-    res.send("Dispositivos" + req.params.id)
+    mysql.query('Select * from Mediciones where dispositivoId=? order by fecha desc', [req.params.id],function (err, result) {
+        if(err){
+            res.send(err).status(400);
+        }
+        res.send(result[0]);
+    });
+
 });
 
-routerDispositivo.get('/:id/electrovalvula/:id', function (req, res) {
+routerDispositivo.get('/:id', function (req, res) {
     res.send("Electrovalvula " + req.params.id)
 });
 
