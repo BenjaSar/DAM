@@ -12,11 +12,11 @@ export class RiegoService {
   constructor(private _http:HttpClient) { }
 
 
- /*getLogByElectrovalvulaById(idElectrovalvula):Promise<logRiego[]>{
-   return this._http.get(this.urlApi + "/dispositivo"+ idDevice + "/electrovalvula/" + id).toPromise().then((riego:logRiego[])=>{
+ getLogByElectrovalvulaById(idElectrovalvula):Promise<logRiego>{
+   return this._http.get(this.urlApi + "/electrovalvula/" + idElectrovalvula).toPromise().then((riego:logRiego)=>{
      return riego;
     });
-  }*/
+  }
   
   
  getLogsByElectrovalvulaById(idElectrovalvula):Promise<logRiego[]>{
@@ -24,15 +24,4 @@ export class RiegoService {
     return logR;
    });
  }  
-
- /* getMedicionesByDispositivoId(id):Promise<Medicion[]>{
-    return this._http.get(this.urlApi + "/medicion/" + id + "/todas").toPromise().then((mediciones:Medicion[])=>{
-      return mediciones
-    });
-  }
-
-  AddMedicion(medicion:Medicion){
-    return this._http.post(this.urlApi + "/medicion/agregar",{fecha:medicion.fecha,valor:medicion.valor,dispositivoId:medicion.dispositivoId}).toPromise().then((result)=>{
-      return result;
-    });*/
 }

@@ -5,13 +5,12 @@
 </ion-header>
 
 <ion-content>
- <!-- <ion-list>
-      <ion-item *ngFor = "let m of this.measure" >
+  <ion-list>
+      <ion-item *ngFor = "let m of this.medicion" >
         <h2>
-          <div *ngIf = "m.disposisitivo =! undefined">medicion: {{m.measure.valor}} <div>
-          <ion-label>El valor de la medicion es: {{m.valor}} </ion-label>
+            <ion-label *ngIf = "this.m != undefined">El valor de la medicion es: {{m.valor}} </ion-label> 
         </h2>
       </ion-item>
-    </ion-list>
-  -->
+      
+  </ion-list>
 </ion-content>

@@ -60,7 +60,6 @@ export class DispositivoPage implements OnInit {
     this.medicionService.getMedicionByDispositivoId(idDispositivo).then((measure)=>{
       this.medicion = measure;
     });
-
     //Obtener electrovalvula por ID.
     /*this.listadoServ.getElectrovalvula(this.idE).then((dispositivo)=>{
     this.deviceE = dispositivo;
