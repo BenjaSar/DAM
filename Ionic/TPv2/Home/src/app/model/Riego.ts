@@ -11,7 +11,7 @@ export class logRiego{
 
     constructor(logRiegoId,fecha,apertura, electrovalvulaId){
         this._logRiegoId=logRiegoId;
-        this.fecha=fecha;
+        this._fecha=fecha;
         this._apertura=apertura;
         this._electrovalvulaId=electrovalvulaId;
     }
@@ -26,8 +26,8 @@ export class logRiego{
     public get fecha(): Date {
         return this._fecha;
     }
-    public set fecha(value: Date) {
-        this._fecha = value;
+    public set fecha(fecha: Date) {
+        this._fecha = fecha;
     }
 
     public get apertura(): boolean {
@@ -40,7 +40,7 @@ export class logRiego{
     public get electrovalvulaId(): number {
         return this._electrovalvulaId;
     }
-    public set dispositivoId(value: number) {
+    public set electrovalvulaId(value: number) {
         this._electrovalvulaId = value;
     }
 }

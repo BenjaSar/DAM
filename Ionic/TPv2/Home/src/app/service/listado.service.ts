@@ -18,8 +18,7 @@ export class ListadoService {
   urlBackend = 'http://localhost:8000/api' //Url donde está hosteada la API
 
 
-  constructor(private _http:HttpClient) {
-   }
+  constructor(private _http:HttpClient) {}
    //RxJS
    //Observable: Permite manjear 0,1 o mas eventos. Puede ser cancelado. Las variables observables se identifican con $
    //En NgOnDestroy se realizan las cancelaciones de suscripcion
@@ -36,9 +35,7 @@ export class ListadoService {
         return dispositivo;
      });
    }
-   //toPromise: convierte observables en promesas
-   //systemctl restart docker.service
-
+   
    /*getElectrovalvula(id):Promise<Dispositivos>{
     return this._http.get(this.urlBackend + "/dispositivo/" + id + "/electrovalvula/" + id).toPromise().then((DevicEl:Dispositivos)=>{
       return DevicEl;

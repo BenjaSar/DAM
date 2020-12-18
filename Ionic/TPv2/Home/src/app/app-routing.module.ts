@@ -17,16 +17,16 @@ const routes: Routes = [
     loadChildren: () => import('./dispositivo/dispositivo.module').then( m => m.DispositivoPageModule)
   },
   {
-    path: 'electrovalvula',
-    loadChildren: () => import('./electrovalvula/electrovalvula.module').then( m => m.ElectrovalvulaPageModule)
-  },
-  {
     path: 'medicion',
     loadChildren: () => import('./medicion/medicion.module').then( m => m.MedicionPageModule)
   },
   {
-    path: 'riego',
+    path: 'riego/:idElectrovalvula',
     loadChildren: () => import('./riego/riego.module').then( m => m.RiegoPageModule)
+  },
+  {
+    path: 'electrovalvula',
+    loadChildren: () => import('./electrovalvula/electrovalvula.module').then( m => m.ElectrovalvulaPageModule)
   },
 
 

@@ -12,21 +12,24 @@ export class RiegoPage implements OnInit {
 
   public idElectrovalvula; 
   idLogRiego;
-  public logRiego : logRiego[]
+  public logsRiego : logRiego[];
+  public logRiego : logRiego;
+  idLog;
  
-
-  constructor(private route: ActivatedRoute, private riegoService: RiegoService) {
+  constructor(private route: ActivatedRoute, public riegoService: RiegoService) {
     this.riegoService.getLogsByElectrovalvulaById(this.idElectrovalvula).then((logR)=>{
-      this.logRiego = logR;
+      this.logsRiego = logR;
+    });
+
+    this.riegoService.getLogByElectrovalvulaById(this.idElectrovalvula).then((riego)=>{
+      this.logRiego = riego;
     });
 
    }
 
+   
+
   ngOnInit() {
-    this.idLogRiego = ​ this​.route.snapshot​.paramMap​.get​('id');
-  }
-
-
-    //this.idElectrovalvula = ​ this​.router.snapshot​.paramMap​.get​('electrovalvula/:id');
-  
+    this.idLogRiego = ​ this​.route.snapshot​.paramMap​.get​('idElectrovalvula');
+  }  
 }

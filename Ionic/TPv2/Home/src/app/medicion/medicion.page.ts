@@ -10,12 +10,12 @@ import { MedicionService } from '../service/medicion.service';
   styleUrls: ['./medicion.page.scss'],
 })
 export class MedicionPage implements OnInit {
-  public idMedicion; 
+  public idMedicion :string; 
   public idDispositivo;
   public measures: Medicion[];
   tableStyle = 'material';
 
-  constructor(private medicionService:MedicionService, private activedRoute: ActivatedRoute) {
+  constructor(public medicionService:MedicionService, private activedRoute: ActivatedRoute) {
 
     //Promesa de listado de mediciones
     this.medicionService.getMedicionesByDispositivoId(this.idDispositivo).then((mediciones)=>{
@@ -24,7 +24,7 @@ export class MedicionPage implements OnInit {
    }
 
   ngOnInit() {
-    this.idMedicion = ​ this​.activedRoute.snapshot​.paramMap​.get​('id');
+    this.idMedicion = ​ this​.activedRoute.snapshot​.paramMap​.get​('idMedicion');
   }
 
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-electrovalvula',
@@ -7,13 +6,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./electrovalvula.page.scss'],
 })
 export class ElectrovalvulaPage implements OnInit {
-  idElectrovalvula;
 
-  constructor(private route:ActivatedRoute) {
-   }
+  constructor() { }
 
-  ngOnInit( ) {
-    this.idElectrovalvula = ​ this​.route.snapshot​.paramMap​.get​('id');
+  ngOnInit() {
   }
 
 }

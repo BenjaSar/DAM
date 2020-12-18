@@ -2,9 +2,6 @@ var express = require('express');
 var routerlogRiego = express.Router();
 var mysql =  require('../../mysql');
 
-//Get '/' : muestra la lista de objetos dispositivos
-
-
 //Metodo get que recibie un parametro id de electrovalvula y devuelve todos los valores de la tabla medicion para el Id dado
 routerlogRiego.get('/:idElectrovalvula', function (req, res) {
     mysql.query('Select * from Log_Riegos where electrovalvulaId=? order by fecha desc', [req.params.idElectrovalvula], function (err, result) {
@@ -23,6 +20,6 @@ routerlogRiego.get('/:idElectrovalvula/todas', function (req, res) {
         res.send(result);
     });
 });
-//Se pone a disposición la variable routerlogRiego
+
 module.exports =  routerlogRiego;  
 

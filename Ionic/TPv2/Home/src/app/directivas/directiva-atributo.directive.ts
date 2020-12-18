@@ -16,7 +16,7 @@ export class DirectivaAtributoDirective {
 
 
   @HostListener('mouseleave') onMouseLeave(){
-   this.cambiarColor('null');
+   this.cambiarColor(null);
   }
 
   private cambiarColor(color:string){

@@ -23,7 +23,6 @@ export class DispositivoPage implements OnInit {
   private valorObtenido:number=0;
   public myChart;
   private chartOptions;
-  //public idDispositivo; 
   public idElectrovalvula;
   abrirElectrovalvula: boolean = true;
   public logRiego: logRiego[];
@@ -33,46 +32,27 @@ export class DispositivoPage implements OnInit {
   public disp : Dispositivos;
 
  
-  constructor(private router: ActivatedRoute, private riegoService:RiegoService, public listadoServ:ListadoService, private medicionService:MedicionService) { 
+  constructor(private router: ActivatedRoute, public medicionService:MedicionService, public listadoServ:ListadoService) { 
 
-    setTimeout(()=>{
-      console.log("Cambio el valor del sensor");
-      this.valorObtenido= this.medicion.valor;
-      //llamo al update del chart para refrescar y mostrar el nuevo valor
-      this.myChart.update({series: [{
-          name: 'kPA',
-          data: [this.valorObtenido],
-          tooltip: {
-              valueSuffix: ' kPA'
-          }
-      }]});
-    },2000);
+      //Promesa de listado de dispositivos. Devuelve un array con la lista de dispositivos.
+      let idDispositivo​ = ​ this​.router.snapshot​.paramMap​.get​('id');
+      this.listadoServ.getDispositivo(idDispositivo).then((dispositivo)=>{
+      this.disp = dispositivo;
+      }); 
+    
+      //Promesa del ùltimo valor de medicion.   
+      this.medicionService.getMedicionByDispositivoId(idDispositivo).then((measure)=>{
+      this.medicion = measure;
+      });
+
   }
 
   ngOnInit() {
-    //Promesa de listado de dispositivos. Devuelve un array con la lista de dispositivos.
-    let idDispositivo​ = ​ this​.router.snapshot​.paramMap​.get​('id');
-    this.listadoServ.getDispositivo(idDispositivo).then((dispositivo)=>{
-      this.disp = dispositivo;
-    }); 
-
-    //Promesa del ùltimo valor de medicion.   
-    this.medicionService.getMedicionByDispositivoId(idDispositivo).then((measure)=>{
-      this.medicion = measure;
-    });
-    //Obtener electrovalvula por ID.
-    /*this.listadoServ.getElectrovalvula(this.idE).then((dispositivo)=>{
-    this.deviceE = dispositivo;
-    console.log("Estoy en el .then " + this.deviceE);  
-    });*/
-
 
      //Se emplea el objeto Date.
      let current_datetime = new Date()
      let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds() 
      let a : Medicion= new Medicion(99,formatted_date,99,1);
-
-    //paramsMap: Todos los valores declarados dentro de app-routing (/:id)
   }
 
   ionViewDidEnter() {

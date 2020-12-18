@@ -1,10 +1,8 @@
 var mysql = require('mysql');
 
 var configMysql = {
-    //Se obtiene una nueva conexión siempre y cuando no se esté utilizando
-    connectionLimit: 10,  //Limite máximo de conexiones simultaneas
-    host     : 'mysql-server', //con docker-compose
-    //host:      '127.0.0.1', //Para implementar con dockercompose usar esta direccion
+    connectionLimit: 10,       //Limite máximo de conexiones simultaneas
+    host     : 'mysql-server', 
     port     : '3306',
     user     : 'root',
     password : 'userpass',
@@ -12,7 +10,7 @@ var configMysql = {
 };
 
 var pool = mysql.createPool(configMysql);
-//Probamos la conexion al pool
+
 pool.getConnection((err, connection) => {
 if(err){
 
@@ -34,13 +32,7 @@ if(err){
     }
     return;
 }
-//npm i --save mysql
 });
-
-//=======[ Main module code ]==================================================
-
-//Los codigos de consulta se pueden hacer en el index.js de cada route(dispositivo, usuario)
-
 module.exports = pool;
 
 //=======[ End of file ]=======================================================
