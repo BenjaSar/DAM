@@ -9,7 +9,6 @@ var corsOption = {origin: '*', optionSuccesStatus: 200};
 app.use(cors(corsOption));
 
 var dispositivo = require('./routes/dispositivo');
-var usuario = require('./routes/usuario');
 var medicion = require('./routes/medicion');
 var logriego = require('./routes/logriego');
 

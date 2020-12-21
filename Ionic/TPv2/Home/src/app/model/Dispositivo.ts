@@ -51,8 +51,4 @@
 
 }
 
-  /*For each property:
-
-A getter method returns the value of the property’s value. A getter is also called an accessor.
-A setter method updates the property’s value. A setter is also known as a mutator.*/
 

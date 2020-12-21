@@ -28,14 +28,14 @@ export class Medicion{
     public get valor(): number {
         return this._valor;
     }
-    public set valor(value: number) {
-        this._valor = value;
+    public set valor(valor: number) {
+        this._valor = valor;
     }
     
     public get dispositivoId(): number {
         return this._dispositivoId;
     }
-    public set dispositivoId(value: number) {
-        this._dispositivoId = value;
+    public set dispositivoId(dId: number) {
+        this._dispositivoId = dId;
     }
 }

@@ -9,9 +9,10 @@
 
 <ion-content>
   <ion-list>
-      <ion-item *ngFor = "let m of this.measure" >
+      <ion-item *ngFor = "let m of this.mediciones" >
         <h2>
-            <ion-label>El valor de la medicion es: {{m.valor}} </ion-label> 
+            <ion-label>Los valores medidos para el dispositivo  {{m.dispositivoId}} fueron: {{m.valor}} 
+            </ion-label> 
         </h2>
       </ion-item> 
   </ion-list>

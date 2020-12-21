@@ -11,7 +11,7 @@ routerDispositivo.get('/', function (req, res) {
     });
 });
 
-//Se obtiene un objeto con id
+//Metodo get que obtiene un objeto con id con la ultima medicion
 routerDispositivo.get('/:id', function (req, res) {
     mysql.query('Select * from Mediciones where dispositivoId=? order by fecha desc', [req.params.id],function (err, result) {
         if(err){
@@ -19,7 +19,6 @@ routerDispositivo.get('/:id', function (req, res) {
         }
         res.send(result[0]);
     });
-
 });
 
 module.exports =  routerDispositivo;  //Se pone a disposición la variable routerDispositivo

@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+  }
+  ,
   {
     path: '',
     redirectTo: 'home',
@@ -17,9 +18,10 @@ const routes: Routes = [
     loadChildren: () => import('./dispositivo/dispositivo.module').then( m => m.DispositivoPageModule)
   },
   {
-    path: 'medicion',
+    path: 'medicion/:idDevice',
     loadChildren: () => import('./medicion/medicion.module').then( m => m.MedicionPageModule)
   },
+
   {
     path: 'riego/:idElectrovalvula',
     loadChildren: () => import('./riego/riego.module').then( m => m.RiegoPageModule)
@@ -28,7 +30,6 @@ const routes: Routes = [
     path: 'electrovalvula',
     loadChildren: () => import('./electrovalvula/electrovalvula.module').then( m => m.ElectrovalvulaPageModule)
   },
-
 
 ];
 

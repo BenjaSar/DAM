@@ -5,8 +5,6 @@ import * as Highcharts from 'highcharts';
 import * as moment from 'moment';
 import { MedicionService } from '../service/medicion.service';
 import { Medicion } from '../model/Medicion';
-import { RiegoService } from '../service/riego.service';
-import { logRiego } from '../model/Riego';
 import { ListadoService } from '../service/listado.service';
 declare var require: any;
 require('highcharts/highcharts-more')(Highcharts);
@@ -25,37 +23,23 @@ export class DispositivoPage implements OnInit {
   private chartOptions;
   public idElectrovalvula;
   abrirElectrovalvula: boolean = true;
-  public logRiego: logRiego[];
   public id;
-  public idE;
-  public medicion:Medicion;
+  public idDispositivo;
   public disp : Dispositivos;
+  medicion: Medicion;
+  public idMedicion;
+  public mensajeButton: string = "ABRIR ELECTROVALVULA";
 
  
   constructor(private router: ActivatedRoute, public medicionService:MedicionService, public listadoServ:ListadoService) { 
-
-      //Promesa de listado de dispositivos. Devuelve un array con la lista de dispositivos.
-      let idDispositivo​ = ​ this​.router.snapshot​.paramMap​.get​('id');
-      this.listadoServ.getDispositivo(idDispositivo).then((dispositivo)=>{
-      this.disp = dispositivo;
-      }); 
-    
-      //Promesa del ùltimo valor de medicion.   
-      this.medicionService.getMedicionByDispositivoId(idDispositivo).then((measure)=>{
-      this.medicion = measure;
-      });
-
   }
 
   ngOnInit() {
-
-     //Se emplea el objeto Date.
-     let current_datetime = new Date()
-     let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds() 
-     let a : Medicion= new Medicion(99,formatted_date,99,1);
+    this.dataUpdate();
   }
 
   ionViewDidEnter() {
+    
     this.generarChart();
   }
 
@@ -131,6 +115,7 @@ export class DispositivoPage implements OnInit {
   }
   
   ionViewWillEnter(){
+    this.dataUpdate();
   }
   //var a : Medicion= new Medicion(99,moment().format("YYYY-MM-DD hh:mm:ss"),99,1);
 
@@ -139,6 +124,24 @@ export class DispositivoPage implements OnInit {
     console.log(this.abrirElectrovalvula);
     this.abrirElectrovalvula =! this.abrirElectrovalvula;
     console.log("Se cambia por:" + this.abrirElectrovalvula);
+  }
+
+  dataUpdate(){
+              
+      //Promesa de listado de dispositivos. Devuelve un array con la lista de dispositivos.
+      this.idDispositivo​ = ​ parseInt(this​.router.snapshot​.paramMap​.get​('id'));
+      this.listadoServ.getDispositivo(this.idDispositivo).then((dispositivo)=>{
+      this.disp = dispositivo;
+      }); 
+
+      //Promesa del ùltimo valor de medicion. 
+      this.listadoServ.getMedicionByDispositivoId(this.idDispositivo).then((measure)=>{
+      this.medicion = measure;
+      console.log(this.medicion.valor);
+      this.valorObtenido = Number(this.medicion.valor);
+      });
+    
+
   }
 }
 

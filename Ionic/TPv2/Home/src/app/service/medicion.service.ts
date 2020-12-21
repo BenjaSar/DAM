@@ -7,19 +7,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MedicionService {
+  getMedicionByDispositivoId(DeviceId: string) {
+    throw new Error('Method not implemented.');
+  }
   urlApi = 'http://localhost:8000/api'
   constructor(private _http:HttpClient) { }
 
-
-  getMedicionByDispositivoId(id):Promise<Medicion>{
-    return this._http.get(this.urlApi + "/medicion/"+id).toPromise().then((measure:Medicion)=>{
-     return measure;
-    });
-  }  
-
   getMedicionesByDispositivoId(id):Promise<Medicion[]>{
     return this._http.get(this.urlApi + "/medicion/" + id + "/todas").toPromise().then((mediciones:Medicion[])=>{
-      return mediciones
+      return mediciones;
     });
   }
 

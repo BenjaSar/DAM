@@ -10,21 +10,22 @@ import { MedicionService } from '../service/medicion.service';
   styleUrls: ['./medicion.page.scss'],
 })
 export class MedicionPage implements OnInit {
-  public idMedicion :string; 
-  public idDispositivo;
-  public measures: Medicion[];
+  
+  public mediciones: Medicion[];
   tableStyle = 'material';
 
-  constructor(public medicionService:MedicionService, private activedRoute: ActivatedRoute) {
-
-    //Promesa de listado de mediciones
-    this.medicionService.getMedicionesByDispositivoId(this.idDispositivo).then((mediciones)=>{
-      this.measures = mediciones;
-    });
-   }
+  constructor(public medicionService:MedicionService, private activedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.idMedicion = ​ this​.activedRoute.snapshot​.paramMap​.get​('idMedicion');
+        
+    let DeviceID = ​ this​.activedRoute.snapshot​.paramMap​.get​('idDevice');
+
+     //Promesa del ùltimo valor de medicion.   
+     this.medicionService.getMedicionesByDispositivoId(DeviceID).then((mediciones)=>{
+      this.mediciones = mediciones;
+      console.log(mediciones);
+      }); 
+   
   }
 
 }

@@ -13,7 +13,9 @@
       <p appDirectivaAtributo ><ion-button routerLink = "/electrovalvula" routerDirection = "forward"  expand="full" shape = "round" class="ion-text-wrap" fill = "outline" (click)="cambiar()">Abrir Electroválvula</ion-button></p>
         <br>
     </div> 
-    <p appDirectivaAtributo ><ion-button  routerLink = "/medicion" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline"> Ver todas las mediciones</ion-button> </p>
-      <br>
-    <p appDirectivaAtributo><ion-button routerLink = "/riego/{{this.logRiegoId}}" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline">Ver los logs de riego</ion-button> </p>   
+    <div> 
+        <p appDirectivaAtributo><ion-button routerLink ="/medicion/{{dispositivoId}}/todas" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline"> Ver todas las mediciones</ion-button> </p>
+          <br>
+    </div>        
+    <p appDirectivaAtributo><ion-button routerLink = "/riego/{{electrovalvulaId}}" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline">Ver los logs de riego</ion-button> </p>   
 </ion-content> 
