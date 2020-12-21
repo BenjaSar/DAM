@@ -6,6 +6,8 @@ import * as moment from 'moment';
 import { MedicionService } from '../service/medicion.service';
 import { Medicion } from '../model/Medicion';
 import { ListadoService } from '../service/listado.service';
+import { RiegoService } from '../service/riego.service';
+import { logRiego } from '../model/Riego';
 declare var require: any;
 require('highcharts/highcharts-more')(Highcharts);
 require('highcharts/modules/solid-gauge')(Highcharts);
@@ -27,11 +29,11 @@ export class DispositivoPage implements OnInit {
   public idDispositivo;
   public disp : Dispositivos;
   medicion: Medicion;
-  public idMedicion;
+  public logRiego : logRiego;
   public mensajeButton: string = "ABRIR ELECTROVALVULA";
 
  
-  constructor(private router: ActivatedRoute, public medicionService:MedicionService, public listadoServ:ListadoService) { 
+  constructor(private router: ActivatedRoute, private route:ActivatedRoute,  public medicionService:MedicionService, public listadoServ:ListadoService, public riegoService: RiegoService) { 
   }
 
   ngOnInit() {
@@ -139,6 +141,20 @@ export class DispositivoPage implements OnInit {
       this.medicion = measure;
       console.log(this.medicion.valor);
       this.valorObtenido = Number(this.medicion.valor);
+      });
+
+
+      //Promesa de los logs de riego por id de electrovalvula
+      let idE = ​ this​.route.snapshot​.paramMap​.get​('idElectrovalvula');
+      this.riegoService.getLogByElectrovalvulaById(idE).then((logR)=>{
+        this.logRiego = logR;
+        if(this.logRiego.apertura== false){
+          this.mensajeButton = "ABRIR ELECTROVALVULA" + this.logRiego.electrovalvulaId;
+        }
+        else{
+          this.mensajeButton = "CERRAR ELECTROVALVULA" + this.logRiego.electrovalvulaId;
+
+        }
       });
     
 

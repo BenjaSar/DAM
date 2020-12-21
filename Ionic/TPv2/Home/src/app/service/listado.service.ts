@@ -38,10 +38,4 @@ export class ListadoService {
      return measure;
     });
   }
-  
-  getLogsByElectrovalvulaById(idElectrovalvula):Promise<logRiego[]>{
-    return this._http.get(this.urlBackend + "/riego/"+ idElectrovalvula + "/todas").toPromise().then((logR:logRiego[])=>{
-      return logR;
-     });
-   }
 }

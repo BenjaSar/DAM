@@ -18,9 +18,6 @@ export class RiegoPage implements OnInit {
   constructor(private route: ActivatedRoute, public riegoService: RiegoService) {}
   ngOnInit() {
     let idE = ​ this​.route.snapshot​.paramMap​.get​('idElectrovalvula');
-    this.riegoService.getLogsByElectrovalvulaById(idE).then((logR)=>{
-      this.logsRiego = logR;
-    });
 
     this.riegoService.getLogByElectrovalvulaById(idE).then((riego)=>{
       this.logRiego = riego;
