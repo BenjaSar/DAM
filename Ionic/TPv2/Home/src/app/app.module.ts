@@ -9,9 +9,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
+import { UpperCasePipe } from './pipe/upper-case.pipe';
+import { DatePipe } from './pipe/date.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UpperCasePipe, DatePipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [

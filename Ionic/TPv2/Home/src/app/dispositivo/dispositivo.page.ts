@@ -35,6 +35,7 @@ export class DispositivoPage implements OnInit {
   public mensajeButton: string = "ABRIR ELECTROVALVULA";
  
   constructor(private router: ActivatedRoute, public medicionService:MedicionService, public listadoServ:ListadoService, private route:ActivatedRoute, public riegoService: RiegoService) { 
+
   }
 
   ngOnInit() {

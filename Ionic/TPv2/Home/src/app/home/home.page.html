@@ -11,9 +11,9 @@
           <ion-icon size = "large" name = "thermometer"> </ion-icon>
         </ion-avatar>
         <h2>
-          <ion-label>{{e.nombre}} - Id: {{e.dispositivoId}} </ion-label>
+          <ion-label>{{e.nombre | uppercase}} - Id: {{e.dispositivoId }} </ion-label>
           <h4> 
-            <ion-label>Ubicacion: {{e.ubicacion}}</ion-label>
+            <ion-label>Ubicacion: {{e.ubicacion|uppercase }}</ion-label>
           </h4>  
         </h2>
       </ion-item>
