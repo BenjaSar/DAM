@@ -10,12 +10,12 @@
 <ion-content>
   <div id="highcharts" style="width:100%; height:300px;"></div>
     <div>
-      <p appDirectivaAtributo ><ion-button routerLink = "/electrovalvula" routerDirection = "forward"  expand="full" shape = "round" class="ion-text-wrap" fill = "outline" (click)="cambiar()">Abrir Electroválvula</ion-button></p>
+      <p appDirectivaAtributo ><ion-button (click) = "valveUpdate()"  expand="full" shape = "round" class="ion-text-wrap" fill = "outline" (click)="cambiar()">{{mensajeButton}}</ion-button></p>
         <br>
     </div> 
-    <div> 
+    <div>  
         <p appDirectivaAtributo><ion-button routerLink ="/medicion/{{dispositivoId}}/todas" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline"> Ver todas las mediciones</ion-button> </p>
           <br>
     </div>        
-    <p appDirectivaAtributo><ion-button routerLink = "/riego/{{electrovalvulaId}}" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline">Ver los logs de riego</ion-button> </p>   
+    <p appDirectivaAtributo><ion-button routerLink = "/riego/{{dispositivoId}}" routerDirection = "forward" expand="full" shape = "round" class="ion-text-wrap" fill = "outline">Ver los logs de riego</ion-button> </p>   
 </ion-content> 

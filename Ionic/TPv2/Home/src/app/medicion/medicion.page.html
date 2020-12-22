@@ -8,12 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-      <ion-item *ngFor = "let m of this.mediciones" >
-        <h2>
-            <ion-label>Los valores medidos para el dispositivo  {{m.dispositivoId}} fueron: {{m.valor}} 
-            </ion-label> 
-        </h2>
-      </ion-item> 
-  </ion-list>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Fecha</th>
+      <th>Valor</th>
+    </tr>
+    <tr *ngFor = "let m of this.mediciones">
+        <td>{{m.dispositivoId}}</td> 
+        <td>{{m.fecha}}</td>
+        <td>{{m.valor}}</td>
+    </tr>
+  </table>
 </ion-content>

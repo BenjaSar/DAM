@@ -1,6 +1,6 @@
 export class Medicion{
     private _medicionId: number;
-    private _fecha: Date; 
+    private _fecha: Date = new Date("1900-01-01"); 
     private _valor: number;
     private _dispositivoId: number;
 

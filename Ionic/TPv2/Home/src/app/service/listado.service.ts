@@ -10,8 +10,7 @@ import { logRiego } from '../model/Riego';
   providedIn: 'root'
 })
 export class ListadoService {
-  //Se simula el backend a traves del JSON
-  //Se encarga de acceder a la base de datos y tener toda la lógica de negocios
+
   listadoDispositivo: Array<Dispositivos> = new Array<Dispositivos>();
   
 

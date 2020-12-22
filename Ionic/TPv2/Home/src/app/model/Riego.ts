@@ -6,7 +6,7 @@
 export class logRiego{
     private _logRiegoId: number;
     private _fecha: Date; 
-    private _apertura: boolean;
+    private _apertura: number;
     private _electrovalvulaId: number;
 
     constructor(logRiegoId,fecha,apertura, electrovalvulaId){
@@ -30,10 +30,10 @@ export class logRiego{
         this._fecha = fecha;
     }
 
-    public get apertura(): boolean {
+    public get apertura(): number {
         return this._apertura;
     }
-    public set apertura(state: boolean) {
+    public set apertura(state: number) {
         this._apertura = state;
     }
     

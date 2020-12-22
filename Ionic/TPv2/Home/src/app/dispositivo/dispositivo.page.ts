@@ -30,10 +30,11 @@ export class DispositivoPage implements OnInit {
   public disp : Dispositivos;
   medicion: Medicion;
   public logRiego : logRiego;
+  public logRiegoInsert: logRiego;
+  public logsRiego : logRiego[];
   public mensajeButton: string = "ABRIR ELECTROVALVULA";
-
  
-  constructor(private router: ActivatedRoute, private route:ActivatedRoute,  public medicionService:MedicionService, public listadoServ:ListadoService, public riegoService: RiegoService) { 
+  constructor(private router: ActivatedRoute, public medicionService:MedicionService, public listadoServ:ListadoService, private route:ActivatedRoute, public riegoService: RiegoService) { 
   }
 
   ngOnInit() {
@@ -142,22 +143,57 @@ export class DispositivoPage implements OnInit {
       console.log(this.medicion.valor);
       this.valorObtenido = Number(this.medicion.valor);
       });
-
-
-      //Promesa de los logs de riego por id de electrovalvula
-      let idE = ​ this​.route.snapshot​.paramMap​.get​('idElectrovalvula');
-      this.riegoService.getLogByElectrovalvulaById(idE).then((logR)=>{
-        this.logRiego = logR;
-        if(this.logRiego.apertura== false){
-          this.mensajeButton = "ABRIR ELECTROVALVULA" + this.logRiego.electrovalvulaId;
-        }
-        else{
-          this.mensajeButton = "CERRAR ELECTROVALVULA" + this.logRiego.electrovalvulaId;
-
-        }
-      });
-    
-
   }
+
+  
+  updateLogRiego(){
+    //Promesa de los logs de riego por id de electrovalvula
+    let idE = ​ this​.route.snapshot​.paramMap​.get​('id');
+    this.riegoService.getLogByElectrovalvulaById(idE).then((logR)=>{
+      this.logRiego = logR;
+    this.logsRiego.push(this.logRiego);
+    if(this.logRiego.apertura== 0){
+      this.mensajeButton = "ABRIR ELECTROVALVULA" + this.logRiego.electrovalvulaId;
+    }
+    else{
+      this.mensajeButton = "CERRAR ELECTROVALVULA" + this.logRiego.electrovalvulaId;
+    }
+  });
+}
+
+valveUpdate(){
+  if(this.logRiego.apertura == 0){
+    this.openElectrovalve();
+  }
+  else {
+    this.closeElectrovalve();
+    this.updateLogRiego();
+  }
+}
+
+openElectrovalve(){
+  this.logRiegoInsert.electrovalvulaId = this.idDispositivo;
+    this.logRiegoInsert.fecha = new Date;
+    this.logRiegoInsert.apertura = 100;
+
+  this.riegoService.AddLogRiego(this.logRiegoInsert).then((result)=>{
+    this.logRiegoInsert.apertura = 100;
+    this.mensajeButton = "CERRAR ELECTROVALVULA" + this.idDispositivo;
+    });
+  }
+
+closeElectrovalve(){
+  this.logRiegoInsert.electrovalvulaId = this.idDispositivo;
+  this.logRiegoInsert.apertura = 0;
+  this.logRiegoInsert.fecha = new Date();
+
+  this.riegoService.AddLogRiego(this.logRiegoInsert).then((result)=>{
+    this.logRiegoInsert.apertura = 0;
+    this.mensajeButton = "ABRIR ELECTROVALVULA" + this.idDispositivo;
+    });
+}  
+  
+
+
 }
 

@@ -18,19 +18,13 @@ const routes: Routes = [
     loadChildren: () => import('./dispositivo/dispositivo.module').then( m => m.DispositivoPageModule)
   },
   {
-    path: 'medicion/:idDevice',
+    path: 'medicion/:id',
     loadChildren: () => import('./medicion/medicion.module').then( m => m.MedicionPageModule)
   },
-
   {
-    path: 'riego/:idElectrovalvula',
+    path: 'riego/:id',
     loadChildren: () => import('./riego/riego.module').then( m => m.RiegoPageModule)
   },
-  {
-    path: 'electrovalvula',
-    loadChildren: () => import('./electrovalvula/electrovalvula.module').then( m => m.ElectrovalvulaPageModule)
-  },
-
 ];
 
 @NgModule({
