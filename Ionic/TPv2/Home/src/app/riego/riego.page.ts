@@ -10,15 +10,15 @@ import { RiegoService } from '../service/riego.service';
 })
 export class RiegoPage implements OnInit {
 
-  public logRiego : logRiego;
+  public lRiego : logRiego[];
   idLog;
  
   constructor(private route: ActivatedRoute, public riegoService: RiegoService) {}
   ngOnInit() {
     let idE = ​ this​.route.snapshot​.paramMap​.get​('id');
 
-    this.riegoService.getLogByElectrovalvulaById(idE).then((riego)=>{
-      this.logRiego = riego;
+    this.riegoService.getLogsByElectrovalvulaById(idE).then((logR)=>{
+      this.lRiego = logR;
     });
   }  
 }

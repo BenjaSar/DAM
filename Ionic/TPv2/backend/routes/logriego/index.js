@@ -3,8 +3,8 @@ var routerlogRiego = express.Router();
 var mysql =  require('../../mysql');
 
 //Metodo get que recibie un parametro id de electrovalvula y devuelve todos los valores de la tabla medicion para el Id dado
-routerlogRiego.get('/:idElectrovalvula', function (req, res) {
-    mysql.query('Select * from Log_Riegos where electrovalvulaId=? order by fecha desc', [req.params.idElectrovalvula], function (err, result) {
+routerlogRiego.get('/:id', function (req, res) {
+    mysql.query('Select * from Log_Riegos where electrovalvulaId=? order by fecha desc', [req.params.id], function (err, result) {
         if(err){
             res.send(err).status(400);
         }
@@ -12,8 +12,8 @@ routerlogRiego.get('/:idElectrovalvula', function (req, res) {
     });
 });
 
-routerlogRiego.get('/:idElectrovalvula/todas', function (req, res) {
-    mysql.query('Select * from Log_Riegos where electrovalvulaId=? order by fecha desc', [req.params.idElectrovalvula], function (err, result) {
+routerlogRiego.get('/:id/todas', function (req, res) {
+    mysql.query('Select * from Log_Riegos where electrovalvulaId=? order by fecha desc', [req.params.id], function (err, result) {
         if(err){
             res.send(err).status(400);  
         }
