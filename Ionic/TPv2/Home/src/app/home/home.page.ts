@@ -15,8 +15,7 @@ tab1Root: any = 'devices';
 listadoDevices:Dispositivos[];
 constructor(public listadoServ:ListadoService) {
     this.listadoServ.getDispositivos().then((listado)=>{
-    this.listadoDevices = listado;
-    console.log("Estoy en el .then " + this.listadoDevices);  
+    this.listadoDevices = listado; 
   });
 };
 

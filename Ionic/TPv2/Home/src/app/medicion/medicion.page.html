@@ -16,7 +16,7 @@
     </tr>
     <tr *ngFor = "let m of this.measures">
         <td>{{m.dispositivoId}}</td> 
-        <td>{{m.fecha}}</td>
+        <td>{{m.fecha | date }}</td>
         <td>{{m.valor}}</td>
     </tr>
   </table>

@@ -29,7 +29,7 @@ export class DispositivoPage implements OnInit {
   public idDispositivo;
   public disp : Dispositivos;
   medicion: Medicion;
-  public logRiego : logRiego;
+  public logriego : logRiego;
   public logRiegoInsert: logRiego;
   public logsRiego : logRiego[];
   public mensajeButton: string = "ABRIR ELECTROVALVULA";
@@ -120,10 +120,7 @@ export class DispositivoPage implements OnInit {
   
   ionViewWillEnter(){
     this.dataUpdate();
-  }
-  //var a : Medicion= new Medicion(99,moment().format("YYYY-MM-DD hh:mm:ss"),99,1);
-
-  
+  }  
   cambiar(){
     console.log(this.abrirElectrovalvula);
     this.abrirElectrovalvula =! this.abrirElectrovalvula;
@@ -147,21 +144,21 @@ export class DispositivoPage implements OnInit {
 
       //Promesa de los logs de riego por id de electrovalvula
       //let idE = ​ parseInt(this​.route.snapshot​.paramMap​.get​('id'));
-      this.riegoService.getLogByElectrovalvulaById(this.idDispositivo).then((logR)=>{
-      this.logRiego = logR;
+      this.riegoService.getLogByElectrovalvulaById(this.idDispositivo).then((riego)=>{
+      this.logriego = riego;
       //this.logsRiego.push(this.logRiego);
-      if(this.logRiego.apertura == 0){
-        this.mensajeButton = "ABRIR ELECTROVALVULA " + this.logRiego.electrovalvulaId;
+      if(this.logriego.apertura == 0){
+        this.mensajeButton = "ABRIR ELECTROVALVULA " + this.logriego.electrovalvulaId;
       }
       else{
-        this.mensajeButton = "CERRAR ELECTROVALVULA " + this.logRiego.electrovalvulaId;
+        this.mensajeButton = "CERRAR ELECTROVALVULA " + this.logriego.electrovalvulaId;
       }
       });
   }
 
 
 valveUpdate(){
-  if(this.logRiego.apertura == 0){
+  if(this.logriego.apertura == 0){
     this.openElectrovalve();
   }
   else {
@@ -171,7 +168,6 @@ valveUpdate(){
 }
 
 openElectrovalve(){
-
   this.logRiegoInsert.electrovalvulaId = this.idDispositivo;
     this.logRiegoInsert.fecha = new Date;
     this.logRiegoInsert.apertura = 100;
@@ -192,8 +188,6 @@ closeElectrovalve(){
     this.mensajeButton = "ABRIR ELECTROVALVULA" + this.idDispositivo;
     });
 }  
-  
-
 
 }
 

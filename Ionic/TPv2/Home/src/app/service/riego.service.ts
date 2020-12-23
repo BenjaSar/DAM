@@ -18,14 +18,13 @@ export class RiegoService {
     });
   }
   
-  
  getLogsByElectrovalvulaById(id):Promise<logRiego[]>{
   return this._http.get(this.urlApi + "/riego/"+ id + "/todas").toPromise().then((logR:logRiego[])=>{
     return logR;
    });
  }
  
- 
+
  AddLogRiego(logR:logRiego){
   return this._http.post(this.urlApi + "/riego/post",{fecha:logR.fecha, apertura:logR.apertura,IdE:logR.electrovalvulaId}).toPromise().then((result)=>{
     return result;
