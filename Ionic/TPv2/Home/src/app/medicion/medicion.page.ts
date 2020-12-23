@@ -13,16 +13,16 @@ import 'handsontable/dist/handsontable.full.css';
 })
 export class MedicionPage implements OnInit {
   
-  public mediciones: Medicion[];
+  measures: Medicion[];
   tableStyle = 'material';
 
   constructor(public medicionService:MedicionService, private activedRoute: ActivatedRoute) {  
-    let idDispositivo = ​ parseInt(this​.activedRoute.snapshot​.paramMap​.get​('id'));
+    let idDispositivo = ​ this​.activedRoute.snapshot​.paramMap​.get​('id');
 
     //Promesa de la tabla de mediciones
     this.medicionService.getMedicionesByDispositivoId(idDispositivo).then((mediciones)=>{
-     this.mediciones = mediciones;
-     console.log("Array de medciones:  "+ mediciones);
+     this.measures = mediciones;
+     console.log("Array de mediciones:  "+ this.measures);
      }); 
 
   }

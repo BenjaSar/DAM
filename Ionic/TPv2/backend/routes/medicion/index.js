@@ -23,5 +23,5 @@ routerMedicion.post('/', function(req, res){
 });   
  
 
-module.exports =  routerMedicion;  //Se pone a disposición la variable routerDispositivo
+module.exports =  routerMedicion;  
 

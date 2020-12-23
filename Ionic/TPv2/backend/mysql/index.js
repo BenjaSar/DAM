@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 var configMysql = {
-    connectionLimit: 10,       //Limite máximo de conexiones simultaneas
+    connectionLimit: 10,  
     host     : 'mysql-server', 
     port     : '3306',
     user     : 'root',

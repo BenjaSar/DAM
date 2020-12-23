@@ -19,7 +19,6 @@ export class RiegoService {
   }
   
   
-
  getLogsByElectrovalvulaById(id):Promise<logRiego[]>{
   return this._http.get(this.urlApi + "/riego/"+ id + "/todas").toPromise().then((logR:logRiego[])=>{
     return logR;
