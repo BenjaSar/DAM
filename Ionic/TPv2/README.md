@@ -17,7 +17,7 @@ El material mostrado aqui corresponde a los ejercicios/actividades desarrollados
 ---
 El proyecto presentado para esta materia,  el cual consiste en una aplicación funcional a múltiples platormas (desktop, mobile) se denomina "Garden Devices", fue desarrollado empleando los conocimientos adquiridos en la materia Desarrollo de Aplicaciones Multiplataforma (DAM) :blush:. Consiste de un frontend y un backend. Para el frontend se empleó el framework Ionic. Del lado de backend se empleó la herramienta Nodejs. Adicionalmente, las modificaciones de estado de los dispositivos serán impactados en una base de datos del tipo relacional.
 
-Respecto al desarrollo, en la página se pueden observar el listado de dispositivos, obtener el ùltimo valor de medición por sensor, consultar el log de riegos y abrir la electrovalvula correspondiente.
+Respecto al desarrollo, en la página se pueden observar el listado de dispositivos, obtener el ùltimo valor de medición por sensor, consultar el log de riegos por sensor y abrir la electrovalvula correspondiente.
 
 # Multiplataforma 
 ---
@@ -40,18 +40,23 @@ docker-compose up
 ```
 Para confirmar que la API ha sido levantada de manera correcta, verificar en la terminal la siguiente leyenda:
 ```javascript
-node-backend    | API levantada en el puerto 3000
+node-backend    | API levantada en el puerto 8000
 ```
 Posteriormente abrir un buscador:
 ```
 [url](http://localhost:8085)
 ```
-Allí será dirigido al administrador de la base de datos (phpMyAdmin). Una vez allí, ingresar las credenciales indicadas en el archivo docker-compose.yml.
+Allí será dirigido al administrador de la base de datos (phpMyAdmin). Posteriormente, ingresar las credenciales indicadas en el archivo docker-compose.yml.
 
-Posteriormente, dirigirse al siguiente path para poder ver la aplicación en Ionic:
+Completado el paso anterior, dirigirse al siguiente path para poder ver la aplicación en Ionic:
 
 ```
 [path:] DAM/Ionic/TPv/Home  
+```
+Dentro del proyecto de ionic correr el siguiente comando, el cual permitirá instalar los packages indicados en el archivo package.json
+
+```sh
+npm install 
 ```
 Para poder correr la apliación en Ionic, ejecutar el siguiente comando:
 ```sh
