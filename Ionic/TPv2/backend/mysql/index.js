@@ -35,6 +35,4 @@ if(err){
 });
 module.exports = pool;
 
-//=======[ End of file ]=======================================================
-//docker run -p 3306 --name mysql-server -e MYSQL_ROOT_PASSWORD=password -d mysql:5.7
-//systemctl restart docker.service
+

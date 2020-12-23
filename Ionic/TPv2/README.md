@@ -62,7 +62,7 @@ Para poder correr la apliación en Ionic, ejecutar el siguiente comando:
 ```sh
 Ionic serve
 ```
-Una vez ejecutado el comando, se abrirá una página el buscador en el siguiente puerto:
+Una vez ejecutado el comando, se abrirá una página en el buscador en el siguiente puerto:
 ```
 [url](http://localhost:8100)
 ```
